@@ -1,0 +1,146 @@
+lavalink:
+    plugins:
+        - dependency: com.github.topi314.lavasearch:lavasearch-plugin:1.0.0
+          snapshot: false
+        - dependency: com.github.topi314.lavasrc:lavasrc-plugin:4.2.0
+          snapshot: false
+        - dependency: dev.lavalink.youtube:youtube-plugin:1.5.2
+          snapshot: false
+        - dependency: com.github.topi314.lavalyrics:lavalyrics-plugin:1.0.0
+          snapshot: false
+        - dependency: com.github.topi314.sponsorblock:sponsorblock-plugin:3.0.1
+          snapshot: false
+        - dependency: com.dunctebot:skybot-lavalink-plugin:1.7.0
+          snapshot: false
+        - dependency: net.esmbot:lava-xm-plugin:0.2.5
+          repository: https://repo.projectlounge.pw/maven/releases
+          snapshot: false
+        - dependency: com.github.devoxin:lavadspx-plugin:0.0.5
+          repository: https://jitpack.io
+          snapshot: false
+    server:
+        bufferDurationMs: 400
+        filters:
+            channelMix: true
+            distortion: true
+            equalizer: true
+            karaoke: true
+            lowPass: true
+            rotation: true
+            timescale: true
+            tremolo: true
+            vibrato: true
+            volume: true
+        frameBufferDurationMs: 5000
+        gc-warnings: true
+        opusEncodingQuality: 10
+        password: spicydevs.js.org
+        playerUpdateInterval: 4
+        resamplingQuality: MEDIUM
+        soundcloudSearchEnabled: true
+        sources:
+            bandcamp: true
+            http: true
+            local: false
+            nico: true
+            soundcloud: true
+            twitch: true
+            vimeo: true
+            youtube: false
+        trackStuckThresholdMs: 10000
+        useSeekGhosting: true
+        youtubePlaylistLoadLimit: 10
+        youtubeSearchEnabled: true
+logging:
+    file:
+        path: ./logs/
+    level:
+        lavalink: INFO
+        root: INFO
+    logback:
+        rollingpolicy:
+            max-file-size: 1GB
+            max-history: 30
+    request:
+        enabled: true
+        includeClientInfo: true
+        includeHeaders: true
+        includePayload: true
+        includeQueryString: true
+        maxPayloadLength: 10000
+metrics:
+    prometheus:
+        enabled: true
+        endpoint: /metrics
+plugins:
+    lavalyrics:
+        sources:
+            - spotify
+            - youtube
+            - deezer
+            - yandexMusic
+    lavasrc:
+        applemusic:
+            albumLoadLimit: 6
+            countryCode: US
+            keyID: your key id
+            mediaAPIToken: your apple music api token
+            musicKitKey: "-----BEGIN PRIVATE KEY-----\nyour key\n-----END PRIVATE KEY-----      \n"
+            playlistLoadLimit: 6
+            teamID: your team id
+        deezer:
+            masterDecryptionKey: your master decryption key
+        flowerytts:
+            audioFormat: mp3
+            silence: 0
+            speed: 1
+            translate: false
+            voice: default voice
+        lyrics-sources:
+            deezer: false
+            spotify: true
+            yandexmusic: false
+            youtube: true
+        providers:
+            - ytsearch:"%ISRC%"
+            - ytsearch:%QUERY%
+        sources:
+            applemusic: false
+            deezer: false
+            flowerytts: false
+            spotify: true
+            yandexmusic: false
+            youtube: true
+        spotify:
+            albumLoadLimit: 6
+            clientId: cf3d39aa7f3046678dc02b54ec301110
+            clientSecret: 5b5834fdb21544558fab0682e491fddf
+            countryCode: US
+            localFiles: false
+            playlistLoadLimit: 6
+        yandexmusic:
+            accessToken: your access token
+            albumLoadLimit: 1
+            artistLoadLimit: 1
+            playlistLoadLimit: 1
+        youtube:
+            countryCode: US
+    youtube:
+        allowDirectPlaylistIds: true
+        allowDirectVideoIds: true
+        allowSearch: true
+        clients:
+            - MUSIC
+            - ANDROID_TESTSUITE
+            - WEB
+            - TVHTML5EMBEDDED
+        enabled: true
+sentry:
+    dsn: ""
+    environment: ""
+server:
+    address: 0.0.0.0
+    http2:
+        enabled: false
+    port: 1556
+
